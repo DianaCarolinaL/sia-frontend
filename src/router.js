@@ -10,6 +10,20 @@ import Material from "./components/Alumno/MaterialApoyo.vue"
 import Notas from "./components/Alumno/Notas.vue"
 import Tareas from "./components/Alumno/Tareas.vue"
 
+import Docente from "./views/Docente.vue";
+import AsesoriasDocente from "./components/Docente/Asesorias.vue";
+import AsistenciaDocente from "./components/Docente/Asistencia.vue";
+import CitacionesDocente from "./components/Docente/Citaciones.vue";
+import ContenidoDocente from "./components/Docente/Contenido.vue";
+import HorarioDocente from "./components/Docente/Horario.vue";
+import InformacionDocente from "./components/Docente/Informacion.vue";
+import InicioDocente from "./components/Docente/Inicio.vue";
+import MaterialDocente from "./components/Docente/Material.vue";
+import NotasDocente from "./components/Docente/Notas.vue";
+import ReportesDocente from "./components/Docente/Reportes.vue";
+import TareasDocente from "./components/Docente/Tareas.vue";
+
+
 Vue.use(Router);
 
 export default new Router({
@@ -62,6 +76,69 @@ export default new Router({
 
       ]
     },
+    {
+      path: "/docente",
+      name: "docente",
+      component: Docente,
+      children: [
+        {
+          path: "/",
+          name: "iniciodocente",
+          component: InicioDocente,
+        },
+        {
+          path: "/informacion",
+          name: "infodocente",
+          component: InformacionDocente,
+        },
+        {
+          path: "/horario",
+          name: "horariodocente",
+          component: HorarioDocente,
+        },
+        {
+          path: "/notas",
+          name: "notasdocente",
+          component: NotasDocente,
+        },
+        {
+          path: "/asistencia",
+          name: "asistencia",
+          component: AsistenciaDocente,
+        },
+        {
+          path: "/contenido",
+          name: "contenidodocente",
+          component: ContenidoDocente,
+        },
+        {
+          path: "/material",
+          name: "materialapoyo",
+          component: MaterialDocente,
+        },
+        {
+          path: "/asesorias",
+          name: "asesoriasdocente",
+          component: AsesoriasDocente,
+        },
+        {
+          path: "/tareas",
+          name: "tareasdocente",
+          component: TareasDocente,
+        },
+        {
+          path: "/reportes",
+          name: "reportes",
+          component: ReportesDocente,
+        },
+        {
+          path: "/citaciones",
+          name: "citaciones",
+          component: CitacionesDocente,
+        }
+
+      ]
+    }
    
   ]
 });
