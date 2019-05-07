@@ -44,6 +44,33 @@
                 </div>
        
             </div>
+
+            <div class="row">
+                 <div class= "d-flex flex-row justify-content-center align-items-center col-md-12">
+                    <div class="card mt-5">
+                     <h5 class="card-header">Matemáticas</h5>
+                        <div class="card-body">
+                    <h5 class="card-title">Tabla de Contenido</h5>
+                    <p class="card-text">
+                        -Proporción geométrica
+                        -Proporción discreta, 
+                        continua-Propiedades de las proporciones
+                        -Operaciones básicas con números reales-Sumas,restas, 
+                        multiplicaciones, divisiones,
+                        potenciación yradicación-Propiedades de cada una de ellas
+                        -Recta numérica
+                        -Regla de tres-Regla de tres simple y su aplicación en problemas
+                        -Regla de tres
+                         Compuesta y su aplicación en problemas
+                        -Conversiones-Unidades de longitud</p>
+                        <a href="#" class="btn btn-primary">Descargar</a>
+                      </div>
+                    </div> 
+                </div>
+             </div>
+
+            
+        
             <footersia></footersia>
         </div>
         
