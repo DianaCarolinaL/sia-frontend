@@ -1,5 +1,6 @@
 <template>
     <div>
+        <div class="header bg-gradient-primary pb-5 pt-2 pt-md-4"></div>
         <h2>Aqui Va el contenido</h2> 
     </div>
 </template>
