@@ -37,14 +37,20 @@
                          <tr>
                     <th scope="row">Números Ordinales</th>
                     <td>
-                    <a href="https://www.youtube.com/watch?v=KY7t8T5CMGY" target="_blank"> Ver Video</a>
+                    
+                    <a href="https://www.youtube.com/watch?v=KY7t8T5CMGY" target="_blank">
+                    <i class="fab fa-youtube fa-2x" style="color:#ff0000"></i>
+                    <span style="font-size:13px;" class="ml-2 text-dark">Ver Video</span> </a>
+                    
+
                     </td>
                     </tr>
                 
                   <tr>
                     <th scope="row">Ejemplo de Conjuntos</th>
                     <td><a href="http://www.frcu.utn.edu.ar/archivos/material_ingreso/02a_Modulo_2-Teoria-Intensivo-Ingreso2014.pdf" target="_blank">
-                        <i class="fas fa-file-pdf fa-2x"></i>
+                        <i class="fas fa-file-pdf fa-2x" style="color:#ff0000"></i>
+                        <span style="font-size:13px" class="ml-2 text-dark">Descargar PDF</span>
                      </a>
 
                    

@@ -17,8 +17,9 @@
       <th scope="row">Matemáticas</th>
       <td>6</td>
       <td>Luz Mery Rojas</td>
-      <td>9.0 
-    <a data-toggle="modal" href="#myModal">Ver Detalles</a> 
+      <td class="d-flex flex-row justify-content-between align-items-center">
+      <p class="mb-0">9</p>
+      <a data-toggle="modal" class="btn btn-primary btn-sm ml-3" href="#myModal">Ver Detalles</a> 
       </td>
     </tr>
     <tr>
@@ -119,7 +120,7 @@
          
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Volver</button>
         </div>
       </div>
       
