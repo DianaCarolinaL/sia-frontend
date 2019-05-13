@@ -31,7 +31,7 @@
                           <tr>
                             <th scope="col">Taller </th>
                             <th scope="col">Fecha Entrega</th>
-                           <th scope="col">Opcion </th>
+                           <th scope="col">Opción </th>
                             
                          </tr>
                         </thead>

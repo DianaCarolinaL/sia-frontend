@@ -2,7 +2,7 @@
     <div>
         <div class="header bg-gradient-primary pb-5 pt-2 pt-md-4"></div>
 
-     <div class="col-xl-8 order-xl-1 mt-5">
+<div class="col-xl-8 order-xl-1 mt-5">
           <div class="card bg-secondary shadow">
             <div class="card-header bg-white border-3">
               <div class="row align-items-center">
@@ -105,19 +105,18 @@
                     </div>
                   </div>
                 </div>
-                <hr class="my-4" />
-                <!-- Description -->
-                <h6 class="heading-small text-muted mb-4">About me</h6>
-                <div class="pl-lg-4">
-                  <div class="form-group">
-                    <label>Acerca de mi ............</label>
-                    <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about you ...">A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea>
-                  </div>
-                </div>
+                
+                
               </form>
             </div>
           </div>
+
+
+
         </div>
+
+
+     
 
     </div>
 </template>
