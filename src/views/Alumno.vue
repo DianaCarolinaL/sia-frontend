@@ -3,10 +3,7 @@
       <sidebar-Alumno></sidebar-Alumno>
       <div class="main-content" style="margin-left:250px"> 
       <navbarsia></navbarsia>
-      
-      
-      
-         <router-view></router-view>
+      <router-view></router-view>
       </div>
       
     </div>

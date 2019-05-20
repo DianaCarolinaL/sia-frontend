@@ -103,7 +103,11 @@
 </template>
 
 <script>
+import footersia from "../Alumno/Footer.vue"
 export default {
+  components: {
+    footersia
+  }
     
 }
 </script>

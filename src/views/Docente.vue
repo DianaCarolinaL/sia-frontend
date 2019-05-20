@@ -14,6 +14,7 @@
 import sidebarDocente from '../components/Docente/SidebarDocente.vue'
 import navbardocente from '../components/Docente/Navbar.vue'
 
+
 export default {
 
     components: {

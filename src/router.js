@@ -1,15 +1,18 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Alumno from "./views/Alumno.vue";
-import Inicio from "./components/Alumno/Inicio.vue"
-import Asesorias from "./components/Alumno/Asesorias.vue"
-import Contenido from "./components/Alumno/ContenidoMaterias.vue"
-import Horario from "./components/Alumno/Horario.vue"
-import Informacion from "./components/Alumno/InformacionEstudiantil.vue"
-import Material from "./components/Alumno/MaterialApoyo.vue"
-import Notas from "./components/Alumno/Notas.vue"
-import Tareas from "./components/Alumno/Tareas.vue"
 
+//------------------------Alumno---------------------------------------
+import Alumno from "./views/Alumno.vue";
+import Inicio from "./components/Alumno/Inicio.vue";
+import Asesorias from "./components/Alumno/Asesorias.vue";
+import Contenido from "./components/Alumno/ContenidoMaterias.vue";
+import Horario from "./components/Alumno/Horario.vue";
+import Informacion from "./components/Alumno/InformacionEstudiantil.vue";
+import Material from "./components/Alumno/MaterialApoyo.vue";
+import Notas from "./components/Alumno/Notas.vue";
+import Tareas from "./components/Alumno/Tareas.vue";
+
+//------------------------Docente---------------------------------------
 import Docente from "./views/Docente.vue";
 import AsesoriasDocente from "./components/Docente/Asesorias.vue";
 import AsistenciaDocente from "./components/Docente/Asistencia.vue";
@@ -23,6 +26,13 @@ import NotasDocente from "./components/Docente/Notas.vue";
 import ReportesDocente from "./components/Docente/Reportes.vue";
 import TareasDocente from "./components/Docente/Tareas.vue";
 
+//------------------------Administrativo---------------------------------------
+import Admin from "./views/Administrador.vue";
+import GestionCursos from "./components/Administrativo/GestionCursos.vue";
+import GestionAlumnos from "./components/Administrativo/GestionAlumnos.vue";
+import GestionDocentes from "./components/Administrativo/GestionDocentes.vue";
+import GestionAcudientes from "./components/Administrativo/GestionAcudientes.vue";
+import GestionBoletines from "./components/Administrativo/GestionBoletines.vue";
 
 Vue.use(Router);
 
@@ -30,13 +40,12 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "alumno",
       component: Alumno,
       children: [
         {
-          path: "/inicio",
+          path: "/",
           name: "inicio",
-          component: Inicio,
+          component: Inicio
         },
         {
           path: "/informacion",
@@ -73,12 +82,10 @@ export default new Router({
           name: "tareas",
           component: Tareas,
         }
-
       ]
     },
     {
       path: "/docente",
-      name: "docente",
       component: Docente,
       children: [
         {
@@ -136,9 +143,38 @@ export default new Router({
           name: "citaciones",
           component: CitacionesDocente,
         }
-
+      ]
+    },
+    {
+      path: "/admin",
+      component: Admin,
+      children: [
+        {
+          path: "/",
+          name: "gestionCursos",
+          component: GestionCursos
+        },
+        {
+          path: "/gestion-alumnos",
+          name: "gestionAlumnos",
+          component: GestionAlumnos,
+        },
+        {
+          path: "/gestion-docentes",
+          name: "gestionDocentes",
+          component: GestionDocentes
+        },
+        {
+          path: "/gestion-acudientes",
+          name: "gestionAcudientes",
+          component: GestionAcudientes
+        },
+        {
+          path: "/gestion-boletines",
+          name: "gestionBoletines",
+          component: GestionBoletines
+        }
       ]
     }
-   
   ]
 });
