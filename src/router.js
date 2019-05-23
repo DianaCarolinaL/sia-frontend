@@ -1,6 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
 
+// import Index from "./views/Index.vue"
+
 //------------------------Alumno---------------------------------------
 import Alumno from "./views/Alumno.vue";
 import Inicio from "./components/Alumno/Inicio.vue";
@@ -38,6 +40,11 @@ Vue.use(Router);
 
 export default new Router({
   routes: [
+    // {
+    //   path: "/",
+    //   name: "inicio",
+    //   component: Index
+    // },
     {
       path: "/",
       component: Alumno,

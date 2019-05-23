@@ -21870,3 +21870,9 @@ html:not([dir='rtl']) .noUi-horizontal .noUi-handle
 
     height: 3px;
 }
+
+.auth-init {
+    background: url("../img/theme/colegio-back.jpg") center center no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw; }
