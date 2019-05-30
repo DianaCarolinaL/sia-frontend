@@ -1,7 +1,11 @@
 import Vue from "vue";
 import Router from "vue-router";
+// import firebase from "firebase";
 
-// import Index from "./views/Index.vue"
+import Index from "./views/Index.vue";
+import LoginDocente from "./views/LoginDocente.vue";
+import LoginEstudiante from "./views/LoginEstudiante.vue";
+import LoginAdmin from "./views/LoginAdmin.vue";
 
 //------------------------Alumno---------------------------------------
 import Alumno from "./views/Alumno.vue";
@@ -40,14 +44,38 @@ Vue.use(Router);
 
 export default new Router({
   routes: [
-    // {
-    //   path: "/",
-    //   name: "inicio",
-    //   component: Index
-    // },
+    {
+      path: "*",
+      redirect: "/"
+    },
     {
       path: "/",
+      component: Index,
+      children:[
+        {
+          path: "/",
+          name: "LoginDocente",
+          component: LoginDocente
+        },
+        {
+          path: "/estudiante",
+          name: "LoginEstudiante",
+          component: LoginEstudiante
+        },
+        {
+          path: "/administrativo",
+          name: "LoginAdmin",
+          component: LoginAdmin
+        },
+
+      ]
+    },
+    {
+      path: "/alumno",
       component: Alumno,
+      // beforeEnter: (to, from, next) => {
+      //   next(firebase.auth().currentUser !== null);
+      // },
       children: [
         {
           path: "/",
@@ -94,6 +122,9 @@ export default new Router({
     {
       path: "/docente",
       component: Docente,
+      // beforeEnter: (to, from, next) => {
+      //   next(firebase.auth().currentUser !== null);
+      // },
       children: [
         {
           path: "/",
@@ -155,6 +186,9 @@ export default new Router({
     {
       path: "/admin",
       component: Admin,
+      // beforeEnter: (to, from, next) => {
+      //   next(firebase.auth().currentUser !== null);
+      // },
       children: [
         {
           path: "/",
@@ -164,7 +198,7 @@ export default new Router({
         {
           path: "/gestion-alumnos",
           name: "gestionAlumnos",
-          component: GestionAlumnos,
+          component: GestionAlumnos
         },
         {
           path: "/gestion-docentes",

@@ -6,8 +6,10 @@
             <div class="card-header border-0" style="padding-bottom: 0px; padding-top: 10px;">
               <!-- <h3 class="mb-0">Listado De Cursos Actualmente en el Plantel Educativo</h3> -->
             <div class="row">
-                <div class="col-md-6"><h2 class="text-center">Listado De Acudientes Actualmente en el Plantel Educativo</h2></div>
-                <div class="col-md-6">
+                <div class="col-md-4 d-flex justify-content-center align-items-center">
+                  <h2 class="text-center mb-3">Listado De Acudientes</h2>
+                  </div>
+                <div class="col-md-4">
                   <div class="form-group">
                     <div class="input-group input-group-alternative mb-4">
                       <div class="input-group-prepend">
@@ -16,6 +18,9 @@
                       <input class="form-control form-control-alternative" placeholder="Filtrar por nombre del Acudiente" type="text" v-model="filtroNombre">
                     </div>
                   </div>
+                </div>
+                <div class="col-md-4">
+                  <button class="btn btn-primary" data-toggle="modal" data-target="#modal-add">Agregar Nuevo Acudiente</button>
                 </div>
               </div>
 
@@ -57,9 +62,9 @@
                             <button class="btn btn-icon btn-2 btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modal-form"  @click="editarAcudiente(Acudiente._id, Acudiente.id)">
 	                            <span class="btn-inner--icon"><i class="far fa-edit"></i></span>	
                             </button>
-                             <button class="btn btn-icon btn-2 btn-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="Ver Detalles">
+                             <!-- <button class="btn btn-icon btn-2 btn-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="Ver Detalles">
 	                            <span class="btn-inner--icon"> <i class="fas fa-eye"></i></span>	
-                            </button>
+                            </button> -->
                             <button class="btn btn-icon btn-2 btn-danger btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="Eliminar Acudiente" @click="eliminarAcudiente(Acudiente._id)">
 	                            <span class="btn-inner--icon"><i class="fas fa-trash-alt"></i></span>	
                             </button>
@@ -73,9 +78,9 @@
 
     <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
     <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document">
-        <div class="modal-content">
+  <div class="modal-content">
         	
-<div class="modal-body p-0">
+  <div class="modal-body p-0">
             	
                 	
    <div class="card bg-secondary shadow border-0">
@@ -130,10 +135,143 @@
                 </div>
               </div>
             </div>
+
+            <div class="row">
+               <h4>Hijos A Cargo en el plantel</h4>
+
+            </div>
            
             <div class="d-flex justify-content-around align-items-center">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 <button type="submit" class="btn btn-primary my-4">Guardar Cambios</button>
+            </div>
+        </form>
+    </div>
+   </div>
+
+                
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-add" tabindex="-1" role="dialog" aria-labelledby="modal-add" aria-hidden="true">
+    <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document">
+        <div class="modal-content">
+        	
+  <div class="modal-body p-0">
+            	
+                	
+   <div class="card bg-secondary shadow border-0">
+   
+    <div class="card-body px-lg-5 py-lg-5">
+        <div class="text-center text-muted mb-4">
+            <h2 class="text-center">Crear Acudiente</h2>
+        </div>
+        <form role="form" @submit.prevent="crearNuevoAcudiente()">
+
+             <div class="row mt-3">
+                <div class="col">
+                  <div class="form-group">
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
+                        </div>
+                        <input class="form-control" placeholder="Nombres" type="text" v-model="nombreNuevoAcudiente" required>
+                    </div>
+                  </div> 
+                </div>
+
+                <div class="col">
+                  <div class="form-group">
+                       <div class="input-group input-group-alternative">
+                           <div class="input-group-prepend">
+                               <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
+                           </div>
+                           <input class="form-control" placeholder="Apellidos" type="text" v-model="apellidoNuevoAcudiente" required>
+                       </div>
+                    </div>
+                </div>
+
+                
+              </div>
+
+               <div class="row">
+                <div class="col">
+                   <div class="form-group">
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-badge"></i></span>
+                        </div>
+                        <input class="form-control" placeholder="Documento" type="text" v-model="documentoNuevoAcudiente" required>
+                    </div>
+                 </div>
+                </div>
+                <div class="col">
+                   <div class="form-group">
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-mobile-button"></i></span>
+                        </div>
+                        <input class="form-control" placeholder="Celular" type="text" v-model="celularNuevoAcudiente" required>
+                    </div>
+                </div>
+                </div>
+              </div>   
+
+            <div class="row">
+                <div class="col">
+                   <div class="form-group">
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-mobile-button"></i></span>
+                        </div>
+                        <input class="form-control" placeholder="Celular Opcional" type="text" v-model="celularOpcionalNuevo">
+                    </div>
+                 </div>
+                </div>
+                <div class="col">
+                   <div class="form-group">
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-mobile-button"></i></span>
+                        </div>
+                        <input class="form-control" placeholder="Celular Trabajo" type="text" v-model="celularTrabajoNuevo">
+                    </div>
+                </div>
+                </div>
+              </div> 
+
+              <div class="row">
+                <div class="col">
+                   <div class="form-group">
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-building"></i></span>
+                        </div>
+                        <input class="form-control" placeholder="Barrio" type="text" v-model="barrioNuevoAcudiente">
+                    </div>
+                 </div>
+                </div>
+                <div class="col">
+                   <div class="form-group">
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-building"></i></span>
+                        </div>
+                        <input class="form-control" placeholder="Dirección" type="text" v-model="direccionNuevoAcudiente">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+
+      
+           
+            <div class="d-flex justify-content-around align-items-center">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary my-4">Crear Acudiente</button>
             </div>
         </form>
     </div>
@@ -185,6 +323,15 @@ export default {
             barrioAEditar: '',
             celularAEditar: '', 
 
+            nombreNuevoAcudiente: '',
+            apellidoNuevoAcudiente: '',  
+            documentoNuevoAcudiente: '',
+            celularNuevoAcudiente: '',
+            celularOpcionalNuevo:'',
+            celularTrabajoNuevo: '',
+            barrioNuevoAcudiente: '',
+            direccionNuevoAcudiente: '',
+
         }
     },
     methods: {
@@ -199,11 +346,69 @@ export default {
             }) 
      },
 
+     crearNuevoAcudiente(){
+
+         axios.post(`${constants.ACUDIENTES}`, {
+          
+          nombres: this.nombreNuevoAcudiente,
+          apellidos: this.apellidoNuevoAcudiente,
+          documento: this.documentoNuevoAcudiente,
+          direccion: this.direccionNuevoAcudiente,
+          barrio: this.barrioNuevoAcudiente,
+          celular: this.celularNuevoAcudiente,
+          celularOpcional: this.celularOpcionalNuevo,
+          celularTrabajo: this.celularTrabajoNuevo,
+          parentezco: this.parentezco
+       })
+       .then(res => {  
+         
+              console.log(res.data)
+              this.getAcudientes()
+
+              Swal.fire(
+                  'Acudiente Creado Correctamente',
+                  'El registro ha sido creado exitosamente',
+                  'success'
+                );
+
+               $('#modal-add').modal('hide')
+            
+            })
+     },
+
      editarAcudiente(indice, index){
-       console.log(index, indice)
+
+         axios.get(`${constants.ACUDIENTES}/${index}`)
+            .then(res => {
+
+                
+                this.idToEdit = indice;
+                this.nombreAEditar = res.data[0].nombres;
+                this.apellidoAEditar = res.data[0].apellidos;
+                this.documentoAEditar = res.data[0].documento;
+                this.celularAEditar = res.data[0].celular;
+
+                
+
+            }) 
+       
      },
 
      modificarAcudiente(){
+
+         axios.put(`${constants.ACUDIENTES}/${this.idToEdit}`, {
+           nombres: this.nombreAEditar,
+           apellidos: this.apellidoAEditar,
+           doumento: this.documentoAEditar,
+           celular: this.celularAEditar,
+           
+         })
+         .then( res => {
+           console.log(res.data)
+           Swal.fire('Edición Realizada','Se realizó la actualización con éxito ','success')   
+           
+           this.getAcudientes(); 
+           $('#modal-form').modal('hide')  }) 
 
      },
 

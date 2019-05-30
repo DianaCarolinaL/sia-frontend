@@ -25,7 +25,7 @@
                 <i class="ni ni-single-02"></i>
                 <span>Mi perfil</span>
               </a>
-              <a href="#!" class="dropdown-item">
+              <a href="#!" class="dropdown-item" @click="logout()">
                 <i class="fas fa-sign-out-alt"></i>
                 <span>Cerrar Sesión</span>
               </a>
@@ -38,7 +38,22 @@
 </template>
 
 <script>
+
+import firebase from "firebase";
 export default {
+
+  methods:{
+    logout(){
+      firebase.auth().signOut()
+      .then(res => {
+        console.log(res)
+        this.$router.replace("estudiante")
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    }
+  }
 
 }
 </script>

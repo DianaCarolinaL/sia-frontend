@@ -74,7 +74,7 @@
     </tr>
 
     <tr>
-    <th scope="row">12:00 am</th>
+    <th scope="row">12:00 pm</th>
     <td>Informatica</td>
     <td>Informática</td>
     <td>Matemáticas</td>

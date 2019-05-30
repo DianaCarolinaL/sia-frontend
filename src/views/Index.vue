@@ -1,63 +1,85 @@
 <template>
-    <div class="auth-init">
-    <div class="container-scroller ">
-    <div class="container-fluid page-body-wrapper full-page-wrapper ">
-      <div class="content-wrapper d-flex align-items-center auth  theme-one">
-        <div class="row w-100">
-          <div class="col-lg-4 mx-auto">
-            <div class="auto-form-wrapper">
-              <div class="form-group mb-4" style="text-align: center">
-                <h2>Bienvenido a SIGTAM</h2>
-                <h4>Iniciar Sesion como</h4>
+    <div>
+<div class="bg-default">
+  <div class="main-content">
+    <!-- Navbar -->
+    <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
+      <div class="container px-4">
+        <a class="navbar-brand" href="../index.html">
+          <img src="../assets/img/brand/siaufps.png"/>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-main" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-collapse-main">
+          <!-- Collapse header -->
+          <div class="navbar-collapse-header d-md-none">
+            <div class="row">
+              <div class="col-6 collapse-brand">
+                <a href="../index.html">
+                  <img src="../assets/img/brand/blue.png">
+                </a>
               </div>
-              <div class="form-group d-flex flex-row justify-content-between">
-                  <router-link :to="{ name: 'admin' }">
-                        <div class="d-flex flex-column justify-content-between align-items-center container-img-login" >
-                            <img src="../assets/img/theme/icono-administrativo.png" alt="Foto Admin" style="border-radius:50%" height="130" width="130" class="foto-admin">
-                            <h5 class="mt-2">Administrador</h5>
-                        </div> 
-                  </router-link>
-                  <router-link :to="{ name: 'docente' }">
-                   <div class="d-flex flex-column justify-content-between align-items-center container-img-login" >
-                      <img src="../assets/img/theme/icono-docente.png" alt="Foto Docente" style="border-radius:50%" class="foto-mecanico">
-                      <h5 class="mt-2">Mecánico</h5>
-                  </div> 
-                  </router-link>  
-
-                  <router-link :to="{ name: 'estudiante' }">
-                   <div class="d-flex flex-column justify-content-between align-items-center container-img-login" >
-                      <img src="../assets/img/theme/icono-estudiante.png" alt="Foto Admin" style="border-radius:50%" class="foto-mecanico">
-                      <h5 class="mt-2">Mecánico</h5>
-                  </div> 
-                  </router-link>               
+              <div class="col-6 collapse-close">
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                  <span></span>
+                  <span></span>
+                </button>
               </div>
             </div>
-        
           </div>
+          <!-- Navbar items -->
+          <ul class="navbar-nav ml-auto">
+            
+            <li class="nav-item">
+              <router-link :to="{ name: 'LoginEstudiante' }" class="nav-link nav-link-icon">
+                  <i class="ni ni-single-02"></i>
+                  <span class="nav-link-inner--text">Estudiante</span>
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link :to="{ name: 'LoginDocente' }" class="nav-link nav-link-icon">
+                  <i class="ni ni-single-02"></i>
+                  <span class="nav-link-inner--text">Docente</span>
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link :to="{ name: 'LoginAdmin' }" class="nav-link nav-link-icon">
+                  <i class="ni ni-single-02"></i>
+                  <span class="nav-link-inner--text">Administrativo</span>
+              </router-link>
+              
+            </li>
+            
+          </ul>
         </div>
       </div>
-      <!-- content-wrapper ends -->
+    </nav>
+    <!-- Header -->
+    <div class="header bg-gradient-primary py-7 py-lg-8">
+      <div class="container">
+      </div>
+      <div class="separator separator-bottom separator-skew zindex-100">
+        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+      </div>
     </div>
-    <!-- page-body-wrapper ends -->
+    <!-- Page content -->
+        <router-view></router-view>
   </div>
+ 
+
+</div>
     </div>
 </template>
 
 <script>
+export default {
 
+}
 </script>
 
 <style>
-
-
-.container-img-login{
-    padding: 10px;
-
-}
-
-.container-img-login:hover{
-    box-shadow: 1px 3px 4px grey;
-
-}
 
 </style>

@@ -25,7 +25,7 @@
             </div>
 
             <div class="row">
-                 <div class= "d-flex flex-row justify-content-center align-items-center col-md-12">
+                 <div class= "d-flex flex-row justify-content-center align-items-center col-md-10 ml-8">
                     <div class="card mt-5">
                      <h5 class="card-header">Matemáticas</h5>
                         <div class="card-body">

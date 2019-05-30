@@ -57,9 +57,9 @@
                             <button class="btn btn-icon btn-2 btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modal-form"  @click="editarDocente(docente.id, docente._id)">
 	                            <span class="btn-inner--icon"><i class="far fa-edit"></i></span>	
                             </button>
-                             <button class="btn btn-icon btn-2 btn-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="Ver Detalles">
+                             <!-- <button class="btn btn-icon btn-2 btn-success btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="Ver Detalles">
 	                            <span class="btn-inner--icon"> <i class="fas fa-eye"></i></span>	
-                            </button>
+                            </button> -->
                             <button class="btn btn-icon btn-2 btn-danger btn-sm" type="button" data-toggle="tooltip" data-placement="top" title="Eliminar Alumno" @click="eliminarDocente(docente._id)">
 	                            <span class="btn-inner--icon"><i class="fas fa-trash-alt"></i></span>	
                             </button>
@@ -119,7 +119,7 @@
                     </div>
                  </div>
               </div>
-              <div class="col">
+              <!-- <div class="col">
                 <div class="form-group">
                     <div class="input-group input-group-alternative">
                         <div class="input-group-prepend">
@@ -128,11 +128,11 @@
                         <input class="form-control" placeholder="Direccion" type="text" v-model="direccionAEditar" >
                     </div>
                 </div>
-              </div>
+              </div> -->
             </div>
 
             <div class="row">
-              <div class="col">
+              <!-- <div class="col">
                  <div class="form-group mb-3">
                     <div class="input-group input-group-alternative">
                         <div class="input-group-prepend">
@@ -141,7 +141,7 @@
                         <input class="form-control" placeholder="Barrio" type="text" v-model="barrioAEditar">
                     </div>
                  </div>
-              </div>
+              </div> -->
               <div class="col">
                 <div class="form-group">
                     <div class="input-group input-group-alternative">
@@ -223,10 +223,34 @@ export default {
      },
 
      editarDocente(indice, index){
-       console.log(index, indice)
+        axios.get(`${constants.DOCENTES}/${index}`)
+            .then(res => {
+                console.log(res.data)
+                this.idToEdit = index;
+                this.nombreAEditar = res.data.nombres;
+                this.apellidoAEditar = res.data.apellidos;
+                this.documentoAEditar = res.data.documento;
+                this.celularAEditar = res.data.celular;
+            })
      },
 
      modificarDocente(){
+
+         axios.put(`${constants.DOCENTES}/${this.idToEdit}`, {
+           nombres: this.nombreAEditar,
+           apellidos: this.apellidoAEditar,
+           doumento: this.documentoAEditar,
+           celular: this.celularAEditar,
+           
+         })
+         .then( res => {
+           console.log(res.data)
+           Swal.fire('Edición Realizada','Se realizó la actualización con éxito ','success')   
+           
+           this.getDocentes(); 
+           $('#modal-form').modal('hide')   
+
+         })
 
      },
 
@@ -243,12 +267,11 @@ export default {
             }).then((result) => {
               if (result.value) {
                 console.log(result)
-                // axios.delete(`${constants.URL_CLIENTES}/${idClient}`)
-                // .then(res => {
-                //   this.getClients()
-                //   console.log(res.data)
-                //   axios.delete(`${constants.URL_VEHICULOS}/${idVehicle}`)
-               // });
+                axios.delete(`${constants.DOCENTES}/${indice}`)
+                .then(res => {
+                  this.getDocentes();
+
+               });
 
                 Swal.fire(
                   'Datos del Docente Eliminados',

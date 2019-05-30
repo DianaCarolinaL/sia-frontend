@@ -2,7 +2,7 @@
     <div>
         <div class="header bg-gradient-primary pb-5 pt-2 pt-md-4"></div>
 
-     <div class="col-xl-8 order-xl-1 mt-5">
+<div class="col-xl-8 order-xl-1 mt-5">
           <div class="card bg-secondary shadow">
             <div class="card-header bg-white border-3">
               <div class="row align-items-center">
@@ -105,11 +105,26 @@
                     </div>
                   </div>
                 </div>
+<<<<<<< HEAD
+=======
+                
+                
+>>>>>>> f4770cd2dd15d236a164d150cea2856aeeb15a0a
               </form>
             </div>
           </div>
+
+
+
         </div>
+<<<<<<< HEAD
 <footersia></footersia> 
+=======
+
+
+     
+
+>>>>>>> f4770cd2dd15d236a164d150cea2856aeeb15a0a
     </div>
     
 </template>
