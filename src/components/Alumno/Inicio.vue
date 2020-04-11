@@ -22,7 +22,7 @@
             </div>
             <div class="card-body">
                 <div class="d-flex flex-row justify-content-between">
-                    <img src="../../assets/img/theme/dia-libro.jpg" style="border-radius:50%;" alt="Logo dia libro">
+                    <img src="https://res.cloudinary.com/sigtam/image/upload/v1561634718/dia-libro_kar9fw.jpg" style="border-radius:50%;" alt="Logo dia libro">
                     <div class="text-right">
                         <h3>Día del libro</h3>
                         <p>La institución Educativa Maria concepción Loperena invita a la jornada de la Mañana a celebrar el día del libro con la participación de la 9 edición del Cuento</p>

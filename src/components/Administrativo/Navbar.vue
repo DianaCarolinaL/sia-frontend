@@ -10,7 +10,7 @@
             <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="media align-items-center">
                 <span class="avatar avatar-sm rounded-circle">
-                  <img alt="Image placeholder" src="../../assets/img/theme/foto-admin.jpg">
+                  <img alt="Image placeholder" src="https://res.cloudinary.com/sigtam/image/upload/v1561634520/foto-admin_n9j1u0.jpg">
                 </span>
                 <div class="media-body ml-2 d-none d-lg-block">
                   <span class="mb-0 text-sm  font-weight-bold">Magaly Mancilla</span>

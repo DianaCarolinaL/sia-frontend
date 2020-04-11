@@ -48,9 +48,9 @@
                           <th scope="col">Apellidos</th>
                           <th scope="col">Documento</th>
                           <th scope="col">Correo</th>
-                          <th scope="col">Barrio</th>
-                          <th scope="col">Celular</th>
                           <th scope="col">Acciones</th>
+                          <!-- <th scope="col">Celular</th> -->
+                          <th scope="col"></th>
                         </tr>
                       </thead>
                       <tbody>
@@ -69,11 +69,14 @@
                             <h5>{{alumno.correo}}</h5>
                           </td>
                           <td>
-                            <h5>{{alumno.barrio}}</h5>
+                            <button class="btn btn-icon btn-3 btn-success btn-sm" type="button" @click="getDataAcademica(alumno.nombres, alumno.apellidos, alumno.documento)">
+	                      <span class="btn-inner--icon"><i class="fas fa-book"></i></span>
+                       <span class="btn-inner--text">Desempeño Académico</span>
+                     </button>
                           </td>
-                          <td>
+                          <!-- <td>
                             <h5>{{alumno.celular}}</h5>
-                          </td>
+                          </td> -->
                           <td>
                             <button class="btn btn-icon btn-2 btn-primary btn-sm" type="button"  data-toggle="modal" data-target="#modal-form" @click="editarAlumno(alumno.id, alumno._id)">
 	                            <span class="btn-inner--icon"><i class="far fa-edit"></i></span>	
@@ -88,10 +91,10 @@
 
                            
                            
-                              <!-- <button class="btn btn-icon btn-3 btn-success" type="button">
-	                              <span class="btn-inner--icon"><i class="fas fa-user-edit"></i></span>
-	                              <span class="btn-inner--text">Ver Detalles</span>
-                              </button> -->
+                              <button class="btn btn-icon btn-3 btn-success btn-sm" type="button" data-toggle="modal" data-target="#modal-view" @click="obtenerAcudiente(alumno.id)">
+	                              <span class="btn-inner--icon"><i class="fas fa-user-lock"></i></span>
+	                              <!-- <span class="btn-inner--text">Ver Detalles</span> -->
+                              </button>
                           </td>
                         </tr>
                        </template>
@@ -107,14 +110,150 @@
                          </div>
                          
                        </template>
+
+                       
+
+
                       </tbody>
                     </table>
                   </div>
+
+
+
+                          
+  
+                  <template v-if="loadBoletin">
+
+                  <div class="row mt-5 pl-3 pr-3">
+                         <div class="col-md-12">
+                           <h3 class="text-dark">Desempeño Academico del Estudiante</h3>
+                         </div>
+                         
+                  </div> 
+                        
+                  <div class="row mt-2 pl-3 pr-3">
+                         <div class="col-md-4">
+                           <p class="font-weight-bold mb-2 text-dark">Nombre Completo del Estudiante</p>
+                           <p>{{nombreSeleccionado}} {{apellidoSeleccionado}}</p>
+                         </div>
+                         <div class="col-md-2">
+                           <p class="font-weight-bold mb-2 text-dark">N° Identificacion</p>
+                           <p class="mt-0 mb-0">{{documentoSeleccionado}}</p>
+                         </div>
+                         <div class="col-md-2">
+                           <p class="font-weight-bold mb-2 text-dark">Grado</p>
+                           <p class="mt-0 mb-0">11-A</p>
+                         </div>
+                         <div class="col-md-4">
+                           <p class="font-weight-bold mb-2 text-dark">Seleccione un periodo</p>
+                           <select class="form-control" @change="getActividaesMaterias(idPeriodo)" v-model="idPeriodo">
+                             <option selected disabled value="Seleccione una Categoria">Seleccione un Periodo</option>
+                             <option value="1">Primer Periodo</option>
+                             <option value="2">Segundo Periodo</option>
+                             <option value="3">Tercer Periodo</option>
+                             <option value="4">Cuarto Periodo</option>
+                           </select>
+                         </div>
+                  </div>
+
+                  <div class="row pr-3 pl-3 mt-3">
+                    <div class="col-md-12">
+                      <template v-if="nombresMaterias.length > 0">
+                        <p class="font-weight-bold mb-2 text-dark pl-2">Materias Vistas durante el Periodo</p>
+                        <table class="table table-hover" id="tablaprint">
+                           <template v-for="(item, index) in nombresMaterias" >
+                            <thead :key="index">
+                              <tr class="table-primary">
+                                <th colspan="5">{{item.nombre}} - Definitiva: 4.2</th>
+                              </tr>
+                              <tr>
+                                <th>Tema</th>
+                                <!-- <th>Descripción</th> -->
+                                <th>Indicaciones</th>
+                                <th>Fecha</th>
+                                <th>Nota</th>
+                               
+                              </tr>
+                            </thead>
+                            <tbody :key="item.id" >
+                              <tr v-for="(value, index) in item.actividades" :key="index">
+                                <th scope="row">{{value.tema}}</th>
+                                <!-- <td>{{value.descripcion}}</td> -->
+                                <td>{{value.indicaciones}}</td>
+                                <td>{{value.fecha}}</td>
+                                <td>{{value.nota}}</td>
+                              </tr>
+                             
+                            </tbody>
+                            </template>
+                          </table>
+                      </template>
+                      
+                        
+                          
+                    </div>
+                  </div>
+
+                  <div>
+                    <button class="btn btn-primary fa-pull-right mt-2 mr-3" @click="generarBoletin()">Generar Boletin</button>
+                  </div>
+
+                  </template>
                 </div>
               </div>
             </div>
             <!-- <pre>{{$data}}</pre> -->
         </div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal-view" tabindex="-1" role="dialog" aria-labelledby="modal-view" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="text-center">Datos del Acudiente del Alumno</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputnombres">Nombres</label>
+              <input type="text" class="form-control" id="inputnombres" disabled v-model="nombreAcudienteAlumno">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputapellidos">Apellidos</label>
+              <input type="text" class="form-control" id="inputapellidos" disabled v-model="apellidoAcudienteAlumno">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputdocumento">Documento</label>
+              <input type="text" class="form-control" id="inputdocumento"  disabled v-model="documentoAcudienteAlumno">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputparentezco">Parentezco</label>
+              <input type="text" class="form-control" id="inputparentezco"  disabled v-model="parentezcoAcudienteAlumno">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputcelular">Celular</label>
+              <input type="text" class="form-control" id="inputcelular" disabled v-model="celularAcudienteAlumno">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputcorreo">Barrio</label>
+              <input type="text" class="form-control" id="inputcorreo" disabled v-model="barrioAcudienteAlumno">
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
  <div class="modal fade" id="modal-aniadir" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
     <div class="modal-dialog  modal-dialog-centered modal-lg" role="document">
@@ -159,7 +298,7 @@
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
               <div class="d-flex flex-column justify-content-center align-items-center mt-3">
-                  <img src="../../assets/img/theme/imagen-perfil-alumno.jpg" class="rounded-circle mr-3" alt="Img Perfil" width="100" height="100" style="border: solid #5e72e4 1px">
+                  <img src="https://res.cloudinary.com/sigtam/image/upload/v1561634465/imagen-perfil-alumno_jbfhc6.jpg" class="rounded-circle mr-3" alt="Img Perfil" width="100" height="100" style="border: solid #5e72e4 1px">
                   <input class="mt-2" type="file"><p class="text-muted"> Imagen del Alumno (250x250 pixeles)</p>
               </div>
 
@@ -610,87 +749,7 @@
             </div>
             
           </div>
-            <!-- <div class="row">
-              <div class="col">
-                 <div class="form-group mb-3">
-                    <div class="input-group input-group-alternative">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
-                        </div>
-                        <input class="form-control" placeholder="Nombres" type="text" v-model="nombreNuevo" disabled>
-                    </div>
-                 </div>
-              </div>
-              <div class="col">
-                <div class="form-group">
-                    <div class="input-group input-group-alternative">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
-                        </div>
-                        <input class="form-control" placeholder="Apellidos" type="text" v-model="apellidoNuevo" required>
-                    </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col">
-                 <div class="form-group mb-3">
-                    <div class="input-group input-group-alternative">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="ni ni-badge"></i></span>
-                        </div>
-                        <input class="form-control" placeholder="Documento" type="text" v-model="documentoNuevo" required>
-                    </div>
-                 </div>
-              </div>
-              <div class="col">
-                <div class="form-group">
-                    <div class="input-group input-group-alternative">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-envelope-square"></i></span>
-                        </div>
-                        <input class="form-control" placeholder="correo" type="email" v-model="correoNuevo" required>
-                    </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col">
-                 <div class="form-group mb-3">
-                    <div class="input-group input-group-alternative">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="ni ni-building"></i></span>
-                        </div>
-                        <input class="form-control" placeholder="Barrio" type="text" v-model="barrioNuevo" required>
-                    </div>
-                 </div>
-              </div>
-              <div class="col">
-                <div class="form-group">
-                    <div class="input-group input-group-alternative">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="ni ni-mobile-button"></i></span>
-                        </div>
-                        <input class="form-control" placeholder="Celular" type="text" v-model="celularNuevo" required>
-                    </div>
-                </div>
-              </div>
-              
-            </div>
-
-            <div class="row">
-              <div class="col">
-                <div class="form-group">
-                            <h4 for="exampleFormControlSelect1">Seleccione El Curso</h4>
-                            <select class="form-control"  @change="getIndiceToCreate(indiceToCreate)" v-model="indiceToCreate">
-                              <option disabled selected value="">Seleccione Un Curso</option>
-                              <option v-for="curso in cursos" :key="curso.nombre"  :value="curso.id">{{ curso.nombre }}</option>
-                            </select>
-                          </div>
-              </div>
-            </div> -->
+         
            
 
             <div class="d-flex justify-content-around align-items-center">
@@ -710,11 +769,11 @@
     </div>
 </div>
         
-      <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
-    <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document">
+<div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+ <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document">
         <div class="modal-content">
         	
-<div class="modal-body p-0">
+ <div class="modal-body p-0">
             	
                 	
    <div class="card bg-secondary shadow border-0">
@@ -811,7 +870,7 @@
     </div>
 </div>
   
-      <pre>{{$data}}</pre>
+      <!-- <pre>{{$data}}</pre> -->
         <footersia></footersia>
    </div>
 </template>
@@ -822,6 +881,9 @@ import axios from "axios"
 import constants from "../../config/constants.js"
 import $ from "jquery";
 import Swal from "sweetalert2";
+import jsPDF from "jspdf";
+import 'jspdf-autotable';
+import html2canvas from "html2canvas";
 
 export default {
     components:{
@@ -860,6 +922,19 @@ export default {
             generoSeleccionado: '',
             fechaNacimiento: '',
             fechaIngreso: '',
+
+            idPeriodo: '',
+            nombresMaterias: [],
+
+            nombreAcudienteAlumno: '',
+            apellidoAcudienteAlumno: '',
+            barrioAcudienteAlumno: '',
+            celularAcudienteAlumno: '',
+            documentoAcudienteAlumno: '',
+            nombreAcudienteAlumno: '',
+            parentezcoAcudienteAlumno: '',
+
+
             
 
             nombreNuevoAcudiente: '',
@@ -871,6 +946,7 @@ export default {
             barrioNuevoAcudiente: '',
             direccionNuevoAcudiente: '',
             parentezco: '',
+            materiasActividades: [],
 
             nombreExistenteAcudiente: '',
             apellidoExistenteAcudiente: '',  
@@ -881,15 +957,46 @@ export default {
             barrioExistenteAcudiente: '',
             direccionExistenteAcudiente: '',
             parentezcoExistente: '',
-            
+            loadBoletin: false,
             documentoABuscar: '',
             existeAcudiente: true,
             creacionNuevoAcudiente: false,
-            idAcudienteSeleccionado: ''
+            idAcudienteSeleccionado: '',
+
+            nombreSeleccionado: '',
+            apellidoSeleccionado: '',
+            documentoSeleccionado: ''
+
             
 }
     },
     methods: {
+
+      generarBoletin(){
+         var doc = new jsPDF('p', 'pt');
+
+       let dataimage = "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";
+       doc.addImage(dataimage, 'JPEG', 40, 30, 140, 30)
+       doc.setFontSize(12)
+       doc.setFont("helvetica");
+       doc.text(40, 100, `Nombre Completo del Alumno`);
+       doc.text(40, 120, `${this.nombreSeleccionado} ${this.apellidoSeleccionado}`);
+
+       doc.text(240, 100, `N° Identificacion`);
+       doc.text(240, 120, `${this.documentoSeleccionado}`);
+
+       doc.text(350, 100, `Grado`);
+       doc.text(350, 120, `11-A`);
+
+       doc.text(440, 100, `Periodo`);
+       doc.text(440, 120, `PRIMERO`);
+
+
+       doc.autoTable(
+        { html: '#tablaprint',
+          margin: {top: 220, right: 30, bottom: 0, left: 30} });
+       doc.save(`boletin.pdf`);
+      },
 
       initCursos(idCurso){
         axios.get(`${constants.ALUMNOS}/all/${idCurso}`)
@@ -909,7 +1016,7 @@ export default {
 
      getIndiceCurso(indiceRecibido){
        
-        axios.get(`${constants.ALUMNOS}all/${indiceRecibido}`)
+        axios.get(`${constants.ALUMNOS}/all/${indiceRecibido}`)
             .then(res => {
                 this.alumnos = res.data;
                 console.log(this.alumnos)
@@ -1044,7 +1151,7 @@ export default {
            nombres: this.nombreAEditar,
            apellidos: this.apellidoAEditar,
            doumento: this.documentoAEditar,
-           direccion: this.direccionAEditar,
+           correo: this.correoAEditar,
            barrio: this.barrioAEditar,
            celular: this.celularAEditar,
            
@@ -1063,7 +1170,7 @@ export default {
      
        eliminarAlumno(indice){
           Swal.fire({
-              title: 'Está seguro de hacer la eliminación',
+              title: 'Está seguro de hacer dar de Baja el Alumno',
               text: "Recuerde que no podrá recuperar el contenido del Alumno",
               type: 'warning',
               showCancelButton: true,
@@ -1090,6 +1197,52 @@ export default {
             })
 
             
+        },
+
+        obtenerAcudiente(idAlumno){
+
+          axios.get(`${constants.ALUMNOS}/acudienteAlumno/${idAlumno}`).then(res=> {
+            this.nombreAcudienteAlumno = res.data[0].nombreAcudiente;
+            this.barrioAcudienteAlumno = res.data[0].barrioAcudiente;
+            this.celularAcudienteAlumno = res.data[0].celularAcudiente;
+            this.documentoAcudienteAlumno = res.data[0].documentoAcudiente;
+            this.apellidoAcudienteAlumno = res.data[0].apellidoAcudiente; 
+            this.parentezcoAcudienteAlumno = res.data[0].parentezcoAcudiente;
+          })
+        },
+
+        getActividaesMaterias(id){
+
+          axios.get(`${constants.ACTIVIDADES}/actividadMateria/${id}`).then(res=> {
+            
+           
+
+           this.nombresMaterias.push({nombre:'Matematicas', actividades: []}, {nombre: 'Español', actividades: []})
+           res.data.forEach(element => {
+             if(element.nombreMateria === "Matematica"){
+
+               this.nombresMaterias[0].actividades.push(element)
+
+             } else{
+
+               this.nombresMaterias[1].actividades.push(element)
+             }
+           })
+
+           console.log(this.nombresMaterias);
+            
+          })
+          
+        },
+
+        getDataAcademica(nombres, apellidos, documento){
+
+          this.loadBoletin = true;
+          this.nombreSeleccionado = nombres;
+          this.apellidoSeleccionado = apellidos;
+          this.documentoSeleccionado = documento;
+
+
         },
         cleanData(){
                   this.correoNuevo = "";
@@ -1118,6 +1271,10 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+.table td, .table th {
+    white-space: normal !important;
+}
 
 </style>

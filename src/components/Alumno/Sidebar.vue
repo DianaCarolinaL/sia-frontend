@@ -8,7 +8,7 @@
       </button>
       <!-- Brand -->
       <a class="navbar-brand pt-0" href="./index.html">
-        <img src="../../assets/img/brand/siaufps.png" class="navbar-brand-img" alt="img-logo-sia-ufps">
+        <img src="https://res.cloudinary.com/sigtam/image/upload/v1561634346/siaufps_zcbgjp.png" class="navbar-brand-img" alt="img-logo-sia-ufps">
         <h3 class="text-primary">Alumno</h3>
         <h3 class="mt-3">Diana Carolina Lopez</h3>
       </a>
@@ -45,7 +45,7 @@
           <div class="row">
             <div class="col-6 collapse-brand">
               <a href="./index.html">
-                <img src="../../assets/img/brand/blue.png">
+                <img src="https://res.cloudinary.com/sigtam/image/upload/v1561634373/blue_jcspgj.png">
               </a>
             </div>
             <div class="col-6 collapse-close">

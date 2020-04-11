@@ -105,11 +105,6 @@
                     </div>
                   </div>
                 </div>
-<<<<<<< HEAD
-=======
-                
-                
->>>>>>> f4770cd2dd15d236a164d150cea2856aeeb15a0a
               </form>
             </div>
           </div>
@@ -117,14 +112,9 @@
 
 
         </div>
-<<<<<<< HEAD
+
 <footersia></footersia> 
-=======
 
-
-     
-
->>>>>>> f4770cd2dd15d236a164d150cea2856aeeb15a0a
     </div>
     
 </template>

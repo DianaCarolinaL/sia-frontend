@@ -9,7 +9,7 @@
                 <h2>Bienvenido Administrativo por favor ingrese las credenciales para acceder</h2>
               </div>
               <div class="d-flex justify-content-between">
-                  <img src="../assets/img/theme/icono-administrativo.png" alt="logoadmin" height="150" width="150">
+                  <img src="https://res.cloudinary.com/sigtam/image/upload/v1561634297/icono-administrativo_n0pdqh.png" alt="logoadmin" height="150" width="150">
                    <div class="d-flex flex-column justify-content-between">
                 <div class="form-group mb-3">
                   <div class="input-group input-group-alternative">

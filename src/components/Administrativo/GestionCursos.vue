@@ -89,6 +89,7 @@ export default {
         getCursosDocentes(){
             axios.post(`${constants.CURSOS}/docente`)
             .then(res => {
+                console.log(res.data)
                 this.cursos = res.data;
             })    
      }

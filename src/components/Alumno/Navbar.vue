@@ -10,7 +10,7 @@
             <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="media align-items-center">
                 <span class="avatar avatar-sm rounded-circle">
-                  <img alt="Image placeholder" src="../../assets/img/theme/nina-adolescente.jpg">
+                  <img alt="Image placeholder" src="https://res.cloudinary.com/sigtam/image/upload/v1561634678/nina-adolescente_vk8vs4.jpg">
                 </span>
                 <div class="media-body ml-2 d-none d-lg-block">
                   <span class="mb-0 text-sm  font-weight-bold">Diana Lopez</span>

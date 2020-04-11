@@ -1,11 +1,14 @@
 //let LOCALHOST =  "localhost:3000";
 let API_SIA = "localhost:3000";
+//let API_SIA = "siaweb-api.herokuapp.com";
 
 const URL = {
-  CURSOS: `http://${API_SIA}/curso/`,
-  ALUMNOS: `http://${API_SIA}/alumno/`,
-  DOCENTES: `http://${API_SIA}/docente/`,
+  CURSOS: `http://${API_SIA}/cursos`,
+  ALUMNOS: `http://${API_SIA}/alumno`,
+  DOCENTES: `http://${API_SIA}/docente`,
   ACUDIENTES: `http://${API_SIA}/acudiente`,
+  ACTIVIDADES:`http://${API_SIA}/actividad`,
+  MATERIAS: `http://${API_SIA}/materias`, 
   CONFIG: {
     apiKey: "AIzaSyC3xV67AVjRXN1NQFHkgb5yZEJGSiqussg",
     authDomain: "sia-2019.firebaseapp.com",

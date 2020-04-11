@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
-// import firebase from "firebase";
+//import firebase from "firebase";
 
 import Index from "./views/Index.vue";
 import LoginDocente from "./views/LoginDocente.vue";
@@ -51,7 +51,7 @@ export default new Router({
     {
       path: "/",
       component: Index,
-      children:[
+      children: [
         {
           path: "/",
           name: "LoginDocente",
@@ -66,8 +66,7 @@ export default new Router({
           path: "/administrativo",
           name: "LoginAdmin",
           component: LoginAdmin
-        },
-
+        }
       ]
     },
     {
@@ -85,37 +84,37 @@ export default new Router({
         {
           path: "/informacion",
           name: "info",
-          component: Informacion,
+          component: Informacion
         },
         {
           path: "/horario",
           name: "horario",
-          component: Horario,
+          component: Horario
         },
         {
           path: "/notas",
           name: "notas",
-          component: Notas,
+          component: Notas
         },
         {
           path: "/contenido",
           name: "contenido",
-          component: Contenido,
+          component: Contenido
         },
         {
           path: "/material",
           name: "material",
-          component: Material,
+          component: Material
         },
         {
           path: "/asesorias",
           name: "asesorias",
-          component: Asesorias,
+          component: Asesorias
         },
         {
           path: "/tareas",
           name: "tareas",
-          component: Tareas,
+          component: Tareas
         }
       ]
     },
@@ -129,57 +128,57 @@ export default new Router({
         {
           path: "/",
           name: "iniciodocente",
-          component: InicioDocente,
+          component: InicioDocente
         },
         {
           path: "/informacion",
           name: "infodocente",
-          component: InformacionDocente,
+          component: InformacionDocente
         },
         {
           path: "/horario",
           name: "horariodocente",
-          component: HorarioDocente,
+          component: HorarioDocente
         },
         {
           path: "/notas",
           name: "notasdocente",
-          component: NotasDocente,
+          component: NotasDocente
         },
         {
           path: "/asistencia",
           name: "asistencia",
-          component: AsistenciaDocente,
+          component: AsistenciaDocente
         },
         {
           path: "/contenido",
           name: "contenidodocente",
-          component: ContenidoDocente,
+          component: ContenidoDocente
         },
         {
           path: "/material",
           name: "materialapoyo",
-          component: MaterialDocente,
+          component: MaterialDocente
         },
         {
           path: "/asesorias",
           name: "asesoriasdocente",
-          component: AsesoriasDocente,
+          component: AsesoriasDocente
         },
         {
           path: "/tareas",
           name: "tareasdocente",
-          component: TareasDocente,
+          component: TareasDocente
         },
         {
           path: "/reportes",
           name: "reportes",
-          component: ReportesDocente,
+          component: ReportesDocente
         },
         {
           path: "/citaciones",
           name: "citaciones",
-          component: CitacionesDocente,
+          component: CitacionesDocente
         }
       ]
     },

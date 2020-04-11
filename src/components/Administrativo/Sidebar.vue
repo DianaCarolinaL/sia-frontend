@@ -8,7 +8,7 @@
       </button>
       <!-- Brand -->
       <a class="navbar-brand pt-0" href="./index.html">
-        <img src="../../assets/img/brand/siaufps.png" class="navbar-brand-img" alt="img-logo-sia-ufps">
+        <img src="https://res.cloudinary.com/sigtam/image/upload/v1561634346/siaufps_zcbgjp.png" class="navbar-brand-img" alt="img-logo-sia-ufps">
         <h3 class="text-primary">Administrativo</h3>
         <h3 class="mt-3">Magaly Mancilla Guillen</h3>
       </a>
@@ -18,7 +18,7 @@
           <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="media align-items-center">
               <span class="avatar avatar-sm rounded-circle">
-                <img alt="Image placeholder" src="../../assets/img/theme/team-1-800x800.jpg">
+                <img alt="Image placeholder" src="https://res.cloudinary.com/sigtam/image/upload/v1561634588/team-1-800x800_obh0as.jpg">
               </span>
             </div>
           </a>
@@ -45,7 +45,7 @@
           <div class="row">
             <div class="col-6 collapse-brand">
               <a href="./index.html">
-                <img src="../../assets/img/brand/blue.png">
+                <img src="https://res.cloudinary.com/sigtam/image/upload/v1561634373/blue_jcspgj.png">
               </a>
             </div>
             <div class="col-6 collapse-close">
@@ -81,11 +81,11 @@
               <i class="fas fa-users text-blue"></i>  Gestión Acudientes
             </router-link>        
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link :to="{ name: 'gestionBoletines'}" class="nav-link" >
               <i class="far fa-clipboard text-red"></i> Gestion Notas 
             </router-link> 
-          </li>
+          </li> -->
         </ul>
         <!-- Divider -->
         <!-- <hr class="my-3"> -->
