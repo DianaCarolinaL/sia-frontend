@@ -1,5 +1,5 @@
 <template>
-    <div>
+<div>
         <div class="header bg-gradient-primary pb-5 pt-2 pt-md-4"></div>
 
 
